@@ -3,6 +3,7 @@ package com.epam.microservices.storage.service.storage.infrastructure.mysql;
 import com.epam.microservices.storage.service.api.exception.dto.Storage;
 import com.epam.microservices.storage.service.storage.api.StorageStoreOperations;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Set;
@@ -34,7 +35,11 @@ class StorageStoreService implements StorageStoreOperations {
   }
 
   @Override
+  @Transactional
   public List<Integer> deleteByIds(Set<Integer> storageIds) {
-    return storageRepository.deleteByIdIn(storageIds);
+    return storageRepository.deleteByIdIn(storageIds)
+      .stream()
+      .map(StorageEntity::getId)
+      .collect(Collectors.toList());
   }
 }

@@ -44,8 +44,8 @@ class StorageController {
   }
 
   @DeleteMapping
-  public DeleteStorageResponse deleteSongs(@RequestParam("id") @Size(max = 200) List<Integer> songIds) {
-    logger.info("Deleting song with ids: {}", songIds);
-    return storageOperations.deleteStorages(new HashSet<>(songIds));
+  public DeleteStorageResponse deleteStorages(@RequestParam("id") @Size(max = 200) List<Integer> storageIds) {
+    logger.info("Deleting storages with ids: {}", storageIds);
+    return storageOperations.deleteStorages(new HashSet<>(storageIds));
   }
 }

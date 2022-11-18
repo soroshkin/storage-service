@@ -9,5 +9,5 @@ import java.util.Set;
 @Repository
 public interface StorageRepository extends JpaRepository<StorageEntity, Integer> {
 
-  List<Integer> deleteByIdIn(Set<Integer> id);
+  List<StorageEntity> deleteByIdIn(Set<Integer> id);
 }
