@@ -33,7 +33,7 @@ public class StorageService implements StorageOperations {
       .forEach(storageType ->
       {
         if (hasStorageOfType(storageType)) {
-          storageStoreOperations.save(new Storage(storageType, storageType.name(), "/files"));
+          storageStoreOperations.save(new Storage(storageType, storageType.name().toLowerCase(), "/files"));
         }
       });
   }

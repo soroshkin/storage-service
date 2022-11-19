@@ -34,7 +34,7 @@ class StorageController {
 
   @PostMapping
   public Storage saveStorage(@RequestBody SaveStorageRequest saveStorageRequest) {
-    logger.info("Trying to save new storage");
+    logger.info("Trying to save new storage {}", saveStorageRequest);
     return storageOperations.saveStorage(saveStorageRequest);
   }
 
