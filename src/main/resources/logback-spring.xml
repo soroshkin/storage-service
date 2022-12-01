@@ -25,7 +25,11 @@
     </appender>
 
     <root level="INFO">
-        <appender-ref ref="logstash"/>
+        <if condition='property("elkEnabled").contains("true")'>
+            <then>
+                <appender-ref ref="logstash"/>
+            </then>
+        </if>
         <appender-ref ref="STDOUT"/>
     </root>
 
