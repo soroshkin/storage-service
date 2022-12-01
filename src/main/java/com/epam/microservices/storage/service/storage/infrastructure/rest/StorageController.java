@@ -40,7 +40,7 @@ class StorageController {
 
   @GetMapping
   public List<Storage> getStorages() {
-    logger.info("Retrieving all");
+    logger.info("Retrieving all storages");
     return storageOperations.getStorages();
   }
 

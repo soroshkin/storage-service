@@ -16,9 +16,11 @@ targetCompatibility = 11
 
 ext {
   springCloudVersion = "3.1.4"
+  zipkinVersion = "2.2.8.RELEASE"
 
   mySqlVersion = "8.0.30"
-  zipkinVersion = "2.2.8.RELEASE"
+  logstashEncoderVersion = "7.2"
+  janinoVersion = "3.1.9"
 
   h2Version = "2.1.214"
 }
@@ -37,6 +39,8 @@ dependencies {
   implementation "org.springframework.cloud:spring-cloud-starter-zipkin:${zipkinVersion}"
 
   implementation "mysql:mysql-connector-java:${mySqlVersion}"
+  implementation "net.logstash.logback:logstash-logback-encoder:${logstashEncoderVersion}"
+  implementation "org.codehaus.janino:janino:${janinoVersion}"
 
   testImplementation "org.springframework.boot:spring-boot-starter-test"
   testImplementation "com.h2database:h2:${h2Version}"
