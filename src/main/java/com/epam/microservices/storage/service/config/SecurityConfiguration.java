@@ -9,8 +9,15 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfiguration {
 
+  private final CorsCustomizer corsCustomizer;
+
+  public SecurityConfiguration(CorsCustomizer corsCustomizer) {
+    this.corsCustomizer = corsCustomizer;
+  }
+
   @Bean
   SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    corsCustomizer.corsCustomizer(http);
     http
       .authorizeRequests()
       .antMatchers(HttpMethod.GET, "/storages/**")
