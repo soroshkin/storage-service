@@ -33,10 +33,12 @@ dependencyManagement {
 
 dependencies {
   implementation "org.springframework.boot:spring-boot-starter-web"
+  implementation "org.springframework.boot:spring-boot-starter-security"
   implementation "org.springframework.boot:spring-boot-starter-data-jpa"
   implementation "org.springframework.boot:spring-boot-starter-validation"
   implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${springCloudVersion}"
   implementation "org.springframework.cloud:spring-cloud-starter-zipkin:${zipkinVersion}"
+  implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server"
 
   implementation "mysql:mysql-connector-java:${mySqlVersion}"
   implementation "net.logstash.logback:logstash-logback-encoder:${logstashEncoderVersion}"
